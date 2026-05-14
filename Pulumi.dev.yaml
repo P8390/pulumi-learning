@@ -1,4 +1,3 @@
-encryptionsalt: v1:Cis4BcEoaFc=:v1:PSu0rU12+02EvC1H:2q2BUkhR0/0L9UIsUK69O6u2XICfMw==
 config:
   aws:region: ap-south-1
   pulumi-learning:services:
@@ -11,3 +10,7 @@ config:
   pulumi-learning:cron:
     daily-report:
       schedule: cron(0 8 * * ? *)
+  pulumi-learning:githubToken:
+    secure: v1:RZT6nujzDer0sqnM:wu2YLZowgdEJGu4EONx6QziJa9Bbby/SVPkRoUbUtBwE2cz8HxZf3mzUnGyrqXz8djiFVQ4BeJ9COk0JUYmQxCN6kqTQ20k9jJLEs+FmFx32dDSB8X1ic1s7/Tlag0wvjDohDqXQPC0d5lKHUQ==
+secretsprovider: awskms://7e3b4678-df61-4fe9-960d-13d132097b7b?region=ap-south-1
+encryptedkey: AQICAHikONY8Bd0itcfsam9spFmDLan8OlFz6EHdwEFHH85dfgEGXCJdqhGjemI7I5YG4SIVAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMxGcerpMujOsvpaVuAgEQgDsk7/zLcOPeeAOKtxe8ysy0fJoSHOZxgXSDjWcRenZd+JywXlfVVvd55L1Y9KIRLpaw7ZPHY3h9qk2XjQ==

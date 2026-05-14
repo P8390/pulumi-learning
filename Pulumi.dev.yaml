@@ -1,0 +1,13 @@
+encryptionsalt: v1:Cis4BcEoaFc=:v1:PSu0rU12+02EvC1H:2q2BUkhR0/0L9UIsUK69O6u2XICfMw==
+config:
+  aws:region: ap-south-1
+  pulumi-learning:services:
+    employee:
+      auth: true
+    invoice:
+      auth: true
+    reports:
+      auth: false
+  pulumi-learning:cron:
+    daily-report:
+      schedule: cron(0 8 * * ? *)

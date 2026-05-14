@@ -1,0 +1,13 @@
+venv/
+__pycache__/
+*.pyc
+
+build/
+layers/
+
+.pulumi/
+
+.env
+*.log
+
+state.json

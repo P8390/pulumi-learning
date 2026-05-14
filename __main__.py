@@ -1,7 +1,7 @@
 from infra.api_factory import create_api_gateway, attach_route
+from infra.cicd import *
 from infra.cron_factory import create_cron
 from infra.lambda_factory import create_lambda
-from infra.cicd import *
 
 config = pulumi.Config()
 services = config.require_object('services')
@@ -52,9 +52,8 @@ aws.lambda_.Permission(
     principal="apigateway.amazonaws.com"
 )
 
-
 for service_name, service_config in services.items():
-    fn = create_lambda(service_name,  {"TABLE_NAME": table.name})
+    fn = create_lambda(service_name, {"TABLE_NAME": table.name})
     attach_route(api, service_name, fn, authorizer if service_config["auth"] else None)
 
 cron_jobs = config.require_object(
@@ -64,7 +63,6 @@ cron_jobs = config.require_object(
 for job_name, job_config in cron_jobs.items():
     fn = create_lambda(job_name)
     create_cron(job_name, fn, job_config.get('schedule', {}))
-
 
 pulumi.export(
     "api_url",

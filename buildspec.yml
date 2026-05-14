@@ -6,7 +6,7 @@ phases:
       - python --version
       - curl -fsSL https://get.pulumi.com > get_pulumi.sh
       - chmod +x get_pulumi.sh
-      - ./get_pulumi.sh --version v3.238.0
+      - ./get_pulumi.sh --version 3.238.0
       - export PATH="$PATH:/root/.pulumi/bin"
       - pulumi version
       - pip install -r requirements.txt

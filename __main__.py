@@ -1,9 +1,7 @@
-import pulumi
-import pulumi_aws as aws
 from infra.api_factory import create_api_gateway, attach_route
 from infra.cron_factory import create_cron
 from infra.lambda_factory import create_lambda
-
+from infra.cicd import *
 
 config = pulumi.Config()
 services = config.require_object('services')

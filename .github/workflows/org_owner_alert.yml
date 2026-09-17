@@ -1,0 +1,32 @@
+name: Monitor Org Owner Changes and Send Slack Message
+
+on:
+  schedule:
+    - cron: '*/1 * * * *'  # every 1 minute
+  workflow_dispatch:
+
+jobs:
+  check-owner-changes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Run the alert script
+        working-directory: ./Scripts/python
+        env:
+          GH_TOKEN: ${{ secrets.ITE_GH_AUDIT_LOGS_TOKEN }}
+          ORG: P8390
+          TEAMS_WEBHOOK_URL: ${{ secrets.ITE_TEAMS_WEBHOOK_URL }}
+        run: |
+          python github_admin_change_reminder.py
